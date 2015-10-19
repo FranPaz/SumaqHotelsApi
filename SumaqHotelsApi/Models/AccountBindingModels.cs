@@ -39,6 +39,10 @@ namespace SumaqHotelsApi.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //[Required]
+        [Display(Name = "HotelId")]
+        public int HotelId { get; set; }
     }
 
     public class ChangePasswordBindingModel
