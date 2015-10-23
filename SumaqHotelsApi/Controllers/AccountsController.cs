@@ -86,7 +86,7 @@ namespace SumaqHotelsApi.Controllers
 
                 string code = await this.AppUserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
-                var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new { userId = user.Id, code = code }));
+                var callbackUrl = new Uri(Url.Link("ConfirmEmailRoute", new {userId = user.Id, code = code }));
 
                 await this.AppUserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
@@ -117,7 +117,12 @@ namespace SumaqHotelsApi.Controllers
 
             if (result.Succeeded)
             {
-                return Ok();
+                IHttpActionResult response;
+                //we want a 303 with the ability to set location
+                HttpResponseMessage responseMsg = new HttpResponseMessage(HttpStatusCode.RedirectMethod);
+                responseMsg.Headers.Location = new Uri("http://localhost:1839/#/confirm");
+                response = ResponseMessage(responseMsg);
+                return response;
             }
             else
             {
