@@ -51,7 +51,8 @@ namespace SumaqHotelsApi
                 TokenEndpointPath = new PathString("/oauth/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new CustomOAuthProvider(),
-                AccessTokenFormat = new CustomJwtFormat("http://localhost:33140")
+                AccessTokenFormat = new CustomJwtFormat("http://sumaqhotelsapi.azurewebsites.net/")
+                //AccessTokenFormat = new CustomJwtFormat("http://localhost:33140")
             };
 
             // OAuth 2.0 Bearer Access Token Generation
@@ -61,7 +62,8 @@ namespace SumaqHotelsApi
         private void ConfigureOAuthTokenConsumption(IAppBuilder app)
         {
 
-            var issuer = "http://localhost:33140";
+            //var issuer = "http://localhost:33140";
+            var issuer = "http://sumaqhotelsapi.azurewebsites.net/";
             string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
             byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
 
