@@ -79,10 +79,16 @@ namespace SumaqHotelsApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Habitaciones.Add(habitacion);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = habitacion.Id }, habitacion);
+            try
+            {
+                db.Habitaciones.Add(habitacion);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message.ToString());
+            }            
         }
 
         // DELETE: api/Habitaciones/5
