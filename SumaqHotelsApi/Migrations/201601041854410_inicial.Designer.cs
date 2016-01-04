@@ -13,7 +13,7 @@ namespace SumaqHotelsApi.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201510131930592_inicial"; }
+            get { return "201601041854410_inicial"; }
         }
         
         string IMigrationMetadata.Source

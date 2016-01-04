@@ -38,10 +38,13 @@ namespace SumaqHotelsApi.Models
         public System.Data.Entity.DbSet<SumaqHotelsApi.Models.CamaAdicional> CamasAdicionales { get; set; }
         public System.Data.Entity.DbSet<SumaqHotelsApi.Models.TipoCama> TiposCamas { get; set; }		
         #endregion
+        public System.Data.Entity.DbSet<SumaqHotelsApi.Models.Pasajero> Pasajeroes { get; set; }
 
         public static SumaqHotels_Context Create() {
             return new SumaqHotels_Context();
         }
+
+     
     }
 
     //public class SumaqHotelsDbInitialier : DropCreateDatabaseAlways<SumaqHotels_Context>

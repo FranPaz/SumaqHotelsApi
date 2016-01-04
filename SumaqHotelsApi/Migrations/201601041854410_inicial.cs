@@ -203,6 +203,24 @@ namespace SumaqHotelsApi.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Pasajeroes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TipoDoc = c.String(),
+                        NumDoc = c.Int(nullable: false),
+                        NomApe = c.String(),
+                        Sexo = c.String(),
+                        ECivil = c.String(),
+                        Dir = c.String(),
+                        CodPostal = c.String(),
+                        Tel = c.String(),
+                        Cel = c.String(),
+                        EMail = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -261,6 +279,7 @@ namespace SumaqHotelsApi.Migrations
             DropIndex("dbo.CamaAdicionals", new[] { "TipoCamaId" });
             DropTable("dbo.ServicioDeHabitacionTipoHabitacions");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Pasajeroes");
             DropTable("dbo.GrupoHoteleroes");
             DropTable("dbo.ServicioDeHabitacions");
             DropTable("dbo.TipoHotels");
