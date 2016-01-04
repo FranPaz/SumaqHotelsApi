@@ -17,13 +17,16 @@ namespace SumaqHotelsApi.Controllers
         private SumaqHotels_Context db = new SumaqHotels_Context();
 
  // GET: api/TiposHabitaciones
-        public IHttpActionResult GetTipoHabitacions()
+        public IHttpActionResult GetTipoHabitacions(int prmIdHotel)
         {
             try
             {
-                var listaTiposHabitaciones = db.TiposHabitaciones
+                var listaTiposHabitaciones = (from th in db.TiposHabitaciones
+                                                 where th.HotelId == prmIdHotel
+                                                 select th)
                 .Include(t => t.CamasAdicionales)
                 .Include(t => t.ServiciosDeHabitacion)
+                .Include(h => h.Habitaciones)
                 .ToList();
 
                 if (listaTiposHabitaciones == null)
@@ -40,9 +43,13 @@ namespace SumaqHotelsApi.Controllers
 
         // GET: api/TiposHabitaciones/5
         [ResponseType(typeof(TipoHabitacion))]
-        public IHttpActionResult GetTipoHabitacion(int id)
+        public IHttpActionResult GetTipoHabitacion(int prmIdHotel, int prmIdHabitacion)
         {
-            TipoHabitacion tipoHabitacion = db.TiposHabitaciones.Find(id);
+            TipoHabitacion tipoHabitacion =(from th in db.TiposHabitaciones
+                                                where th.HotelId == prmIdHotel
+                                                && th.Id == prmIdHabitacion
+                                                select th)
+                                                .FirstOrDefault();
             if (tipoHabitacion == null)
             {
                 return NotFound();

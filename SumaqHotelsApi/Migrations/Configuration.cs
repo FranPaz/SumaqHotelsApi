@@ -27,11 +27,11 @@ namespace SumaqHotelsApi.Migrations
 
             var user = new ApplicationUser()
             {
-                UserName = "Fran",
-                Email = "francisco_paz3@hotmail.com",
+                UserName = "Administrador",
+                Email = "overcode_dev@outlook.com",
                 EmailConfirmed = true,
-                FirstName = "Francisco",
-                LastName = "Paz",
+                FirstName = "Admin",
+                LastName = "Admin",
                 Level = 1,
                 JoinDate = DateTime.Now.AddYears(-3),
                 Hotel = new Hotel
@@ -53,7 +53,7 @@ namespace SumaqHotelsApi.Migrations
                 roleManager.Create(new IdentityRole { Name = "User" });
             }
 
-            var adminUser = manager.FindByName("Fran");
+            var adminUser = manager.FindByName("Administrador");
 
             manager.AddToRoles(adminUser.Id, new string[] { "SuperAdmin", "Admin" });
             #endregion
@@ -61,7 +61,7 @@ namespace SumaqHotelsApi.Migrations
             #region Semilla de Categorias de Hoteles
             var listCategorias = new List<Categoria>
                         {
-                            //new Categoria { CantEstrellas = 1, Descripcion="Hoteles 1 Estrella"},                     
+                            new Categoria { CantEstrellas = 1, Descripcion="Hoteles 1 Estrella"},                     
                             new Categoria { CantEstrellas = 2, Descripcion="Hoteles 2 Estrellas"},
                             new Categoria { CantEstrellas = 3, Descripcion="Hoteles 3 Estrellas"},
                             new Categoria { CantEstrellas = 4, Descripcion="Hoteles 4 Estrellas"},
@@ -76,7 +76,7 @@ namespace SumaqHotelsApi.Migrations
             #region Semilla de los Tipos de Hoteles
             var tiposHoteles = new List<TipoHotel>
                         {
-                            //new TipoHotel { Nombre="Urbano", Descripcion="descripcion temporal"},
+                            new TipoHotel { Nombre="Urbano", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Spa & Resort", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Apart Hotel", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Posada", Descripcion="descripcion temporal"},
@@ -116,6 +116,21 @@ namespace SumaqHotelsApi.Migrations
                 context.TiposCamas.Add(item);
             }
             #endregion            
+
+            #region Semilla de Tipos de Imagenes
+            var tiposImagenes = new List<TipoImagen>
+                        {                            
+                            new TipoImagen {Descripcion="Logo del Hotel"},
+                            new TipoImagen {Descripcion="Imagenes del Hotel"},
+                            new TipoImagen {Descripcion="Imagenes de Habitaciones"},
+                        };
+            foreach (var item in tiposImagenes)
+            {
+                context.TiposImagenes.Add(item);
+            }
+            #endregion
+
+            base.Seed(context);
         }
     }
 }

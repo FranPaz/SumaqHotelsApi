@@ -24,7 +24,10 @@ namespace SumaqHotelsApi.Models
         
         // 1 a M con Hotel (uno)
         public int HotelId { get; set; }
-        public virtual Hotel Hotel { get; set; }       
+        public virtual Hotel Hotel { get; set; }
+
+        //1 a M con ImagenTipoHabitacion (muchos)
+        public virtual ICollection<ImagenTipoHabitacion> ImagenesTipoHabitacion { get; set; }
         
     }
 

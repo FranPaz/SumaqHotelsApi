@@ -34,6 +34,9 @@ namespace SumaqHotelsApi.Models
         // 1 a M con Application User
         public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
 
+        // 1 a M con ImagenesHotel (muchos)
+        public virtual ICollection<ImagenHotel> ImagenesHotel { get; set; }
+
         // 1 a M con GrupoHotelero (uno) -- PARA FUTURAS MEJORAS
         //public int GrupoHoteleroId { get; set; }
         //public virtual GrupoHotelero GrupoHotelero { get; set; }
