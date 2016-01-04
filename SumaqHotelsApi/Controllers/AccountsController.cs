@@ -120,7 +120,7 @@ namespace SumaqHotelsApi.Controllers
                 IHttpActionResult response;
                 //we want a 303 with the ability to set location
                 HttpResponseMessage responseMsg = new HttpResponseMessage(HttpStatusCode.RedirectMethod);
-                responseMsg.Headers.Location = new Uri("http://localhost:1839/#/confirm");
+                responseMsg.Headers.Location = new Uri("http://sumaqhotels.azurewebsites.net/#/seguridad/confirm");
                 response = ResponseMessage(responseMsg);
                 return response;
             }
