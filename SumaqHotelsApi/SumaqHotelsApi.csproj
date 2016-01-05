@@ -238,6 +238,7 @@
     <Compile Include="Controllers\HabitacionesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelesController.cs" />
+    <Compile Include="Controllers\PasajeroController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\ServiciosDeHabitacionesController.cs" />
     <Compile Include="Controllers\TipoCamasController.cs" />
@@ -249,9 +250,9 @@
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201512292024079_inicial.cs" />
-    <Compile Include="Migrations\201512292024079_inicial.Designer.cs">
-      <DependentUpon>201512292024079_inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201601041854410_inicial.cs" />
+    <Compile Include="Migrations\201601041854410_inicial.Designer.cs">
+      <DependentUpon>201601041854410_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -260,6 +261,8 @@
     <Compile Include="Models\Habitacion.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\ModelFactory.cs" />
+    <Compile Include="Models\Pasajero.cs" />
+    <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\RoleBindingModels.cs" />
     <Compile Include="Models\SumaqHotels_Context.cs" />
     <Compile Include="Models\TipoHabitacion.cs" />
@@ -338,8 +341,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512292024079_inicial.resx">
-      <DependentUpon>201512292024079_inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601041854410_inicial.resx">
+      <DependentUpon>201601041854410_inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

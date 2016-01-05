@@ -173,49 +173,6 @@ namespace SumaqHotelsApi.Migrations
                 .Index(t => t.HotelId);
             
             CreateTable(
-                "dbo.ImagenHotels",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        HotelId = c.Int(nullable: false),
-                        TipoImagenId = c.Int(nullable: false),
-                        FileName = c.String(),
-                        FileUrl = c.String(),
-                        FileSizeInBytes = c.Long(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Hotels", t => t.HotelId, cascadeDelete: true)
-                .ForeignKey("dbo.TipoImagens", t => t.TipoImagenId, cascadeDelete: true)
-                .Index(t => t.HotelId)
-                .Index(t => t.TipoImagenId);
-            
-            CreateTable(
-                "dbo.TipoImagens",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Descripcion = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.ImagenTipoHabitacions",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        TipoHabitacionId = c.Int(nullable: false),
-                        TipoImagenId = c.Int(nullable: false),
-                        FileName = c.String(),
-                        FileUrl = c.String(),
-                        FileSizeInBytes = c.Long(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.TipoHabitacions", t => t.TipoHabitacionId, cascadeDelete: true)
-                .ForeignKey("dbo.TipoImagens", t => t.TipoImagenId, cascadeDelete: true)
-                .Index(t => t.TipoHabitacionId)
-                .Index(t => t.TipoImagenId);
-            
-            CreateTable(
                 "dbo.TipoHotels",
                 c => new
                     {
@@ -242,6 +199,24 @@ namespace SumaqHotelsApi.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Nombre = c.String(),
                         Descripcion = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Pasajeroes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        TipoDoc = c.String(),
+                        NumDoc = c.Int(nullable: false),
+                        NomApe = c.String(),
+                        Sexo = c.String(),
+                        ECivil = c.String(),
+                        Dir = c.String(),
+                        CodPostal = c.String(),
+                        Tel = c.String(),
+                        Cel = c.String(),
+                        EMail = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -277,10 +252,6 @@ namespace SumaqHotelsApi.Migrations
             DropForeignKey("dbo.ServicioDeHabitacionTipoHabitacions", "ServicioDeHabitacion_Id", "dbo.ServicioDeHabitacions");
             DropForeignKey("dbo.TipoHabitacions", "HotelId", "dbo.Hotels");
             DropForeignKey("dbo.Hotels", "TipoHotelId", "dbo.TipoHotels");
-            DropForeignKey("dbo.ImagenTipoHabitacions", "TipoImagenId", "dbo.TipoImagens");
-            DropForeignKey("dbo.ImagenTipoHabitacions", "TipoHabitacionId", "dbo.TipoHabitacions");
-            DropForeignKey("dbo.ImagenHotels", "TipoImagenId", "dbo.TipoImagens");
-            DropForeignKey("dbo.ImagenHotels", "HotelId", "dbo.Hotels");
             DropForeignKey("dbo.HotelDireccions", "HotelId", "dbo.Hotels");
             DropForeignKey("dbo.Hotels", "CategoriaId", "dbo.Categorias");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
@@ -293,10 +264,6 @@ namespace SumaqHotelsApi.Migrations
             DropIndex("dbo.ServicioDeHabitacionTipoHabitacions", new[] { "TipoHabitacion_Id" });
             DropIndex("dbo.ServicioDeHabitacionTipoHabitacions", new[] { "ServicioDeHabitacion_Id" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.ImagenTipoHabitacions", new[] { "TipoImagenId" });
-            DropIndex("dbo.ImagenTipoHabitacions", new[] { "TipoHabitacionId" });
-            DropIndex("dbo.ImagenHotels", new[] { "TipoImagenId" });
-            DropIndex("dbo.ImagenHotels", new[] { "HotelId" });
             DropIndex("dbo.HotelDireccions", new[] { "HotelId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -312,12 +279,10 @@ namespace SumaqHotelsApi.Migrations
             DropIndex("dbo.CamaAdicionals", new[] { "TipoCamaId" });
             DropTable("dbo.ServicioDeHabitacionTipoHabitacions");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Pasajeroes");
             DropTable("dbo.GrupoHoteleroes");
             DropTable("dbo.ServicioDeHabitacions");
             DropTable("dbo.TipoHotels");
-            DropTable("dbo.ImagenTipoHabitacions");
-            DropTable("dbo.TipoImagens");
-            DropTable("dbo.ImagenHotels");
             DropTable("dbo.HotelDireccions");
             DropTable("dbo.Categorias");
             DropTable("dbo.AspNetUserRoles");

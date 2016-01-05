@@ -41,9 +41,12 @@ namespace SumaqHotelsApi.Models
 
         
         #endregion
+        public System.Data.Entity.DbSet<SumaqHotelsApi.Models.Pasajero> Pasajeroes { get; set; }
 
         public static SumaqHotels_Context Create() {
             return new SumaqHotels_Context();
         }
+
+     
     }
 }
