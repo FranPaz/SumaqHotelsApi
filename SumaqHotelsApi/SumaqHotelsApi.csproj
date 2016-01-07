@@ -250,9 +250,9 @@
     <Compile Include="Infrastructure\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\ApplicationUser.cs" />
     <Compile Include="Infrastructure\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201601041854410_inicial.cs" />
-    <Compile Include="Migrations\201601041854410_inicial.Designer.cs">
-      <DependentUpon>201601041854410_inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201601051007179_inicial.cs" />
+    <Compile Include="Migrations\201601051007179_inicial.Designer.cs">
+      <DependentUpon>201601051007179_inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -304,7 +304,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\SumaqHotelsApi - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\SumaqHotelsApi - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SumaqHotelsApi - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\SumaqHotelsApi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\SumaqHotelsApi.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -341,8 +343,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601041854410_inicial.resx">
-      <DependentUpon>201601041854410_inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601051007179_inicial.resx">
+      <DependentUpon>201601051007179_inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
