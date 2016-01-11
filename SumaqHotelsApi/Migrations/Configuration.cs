@@ -76,11 +76,12 @@ namespace SumaqHotelsApi.Migrations
             #region Semilla de los Tipos de Hoteles
             var tiposHoteles = new List<TipoHotel>
                         {
-                            new TipoHotel { Nombre="Urbano", Descripcion="descripcion temporal"},
-                            new TipoHotel { Nombre="Spa & Resort", Descripcion="descripcion temporal"},
+                            new TipoHotel { Nombre="Posada", Descripcion="descripcion temporal"},
+                            new TipoHotel { Nombre="Hotel Boutique", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Apart Hotel", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Posada", Descripcion="descripcion temporal"},
-                            new TipoHotel { Nombre="Hotel Casino", Descripcion="descripcion temporal"}
+                            new TipoHotel { Nombre="Hostel", Descripcion="descripcion temporal"}
+                            new TipoHotel { Nombre="Hotel", Descripcion="descripcion temporal"}
                         };
             foreach (var item in tiposHoteles)
             {
