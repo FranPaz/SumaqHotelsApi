@@ -104,6 +104,20 @@ namespace SumaqHotelsApi.Controllers
 
             try
             {
+                #region fpaz: armado de servicios de habitacion agregados en el alta de tipos de habitaciones
+                List<ServicioDeHabitacion> servicios = new List<ServicioDeHabitacion>();
+                foreach (var item in tipoHabitacion.ServiciosDeHabitacion)
+                {
+                    var serv = db.ServiciosDeHabitacion.Find(item.Id);
+                    if (serv != null)
+                    {
+                        servicios.Add(serv);
+                    }
+                }
+
+                tipoHabitacion.ServiciosDeHabitacion = servicios;
+                #endregion
+
                 db.TiposHabitaciones.Add(tipoHabitacion);
                 db.SaveChanges();
 
