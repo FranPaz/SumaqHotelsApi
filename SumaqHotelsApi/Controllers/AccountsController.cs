@@ -63,8 +63,7 @@ namespace SumaqHotelsApi.Controllers
 
             try
             {
-                SumaqHotels_Context db = new SumaqHotels_Context();
-                var hotel = db.Hoteles.Find(createUserModel.HotelId);
+                SumaqHotels_Context db = new SumaqHotels_Context();                
 
                 var user = new ApplicationUser()
                 {
@@ -74,7 +73,7 @@ namespace SumaqHotelsApi.Controllers
                     LastName = createUserModel.LastName,
                     Level = 3,
                     JoinDate = DateTime.Now.Date,
-                    Hotel = hotel
+                    Hotel = new Hotel()
                 };
 
                 IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
