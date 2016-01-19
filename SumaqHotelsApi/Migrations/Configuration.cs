@@ -78,7 +78,7 @@ namespace SumaqHotelsApi.Migrations
                         {
                             new TipoHotel { Nombre="Posada", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Hotel Boutique", Descripcion="descripcion temporal"},
-                            new TipoHotel { Nombre="Apart Hotel", Descripcion="descripcion temporal"},                            
+                            new TipoHotel { Nombre="Apart Hotel", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Hostel", Descripcion="descripcion temporal"},
                             new TipoHotel { Nombre="Hotel", Descripcion="descripcion temporal"}
                         };
