@@ -73,7 +73,14 @@ namespace SumaqHotelsApi.Controllers
                     LastName = createUserModel.LastName,
                     Level = 3,
                     JoinDate = DateTime.Now.Date,
-                    Hotel = new Hotel()
+                    Hotel = new Hotel //hotel que se crea por defecto cuando se da de alta una nueva cuenta de administrador
+                    {
+                        Nombre = "",
+                        Descripcion = "",
+                        CantPisos = 1,
+                        CategoriaId = 1,
+                        TipoHotelId = 1                        
+                    }
                 };
 
                 IdentityResult addUserResult = await this.AppUserManager.CreateAsync(user, createUserModel.Password);
