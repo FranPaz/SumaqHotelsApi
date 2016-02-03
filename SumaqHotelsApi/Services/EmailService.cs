@@ -29,8 +29,8 @@ namespace SumaqHotelsApi.Services
             myMessage.Html = message.Body;
 
             // Create network credentials to access your SendGrid account
-            var username = "fran_paz";
-            var pswd = "t568sendgrid";
+            var username = "";
+            var pswd = "";
 
             var credentials = new NetworkCredential(username, pswd);
             
