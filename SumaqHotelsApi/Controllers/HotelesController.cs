@@ -37,10 +37,21 @@ namespace SumaqHotelsApi.Controllers
         }
 
         // GET: api/Hoteles/5
-        [ResponseType(typeof(Hotel))]
+        //[ResponseType(typeof(Hotel))]
         public IHttpActionResult GetHotel(int id)
         {
-            Hotel hotel = db.Hoteles.Find(id);
+            
+
+           var hotel = (from h in db.Hoteles
+                             where h.Id == id
+                             select h)
+                             .Include(c => c.Categoria)
+                             .Include(th => th.TipoHotel)
+                             .FirstOrDefault();
+          
+           hotel.TipoHotel.Hoteles = null;
+           hotel.Categoria.Hoteles = null;
+
             if (hotel == null)
             {
                 return NotFound();
