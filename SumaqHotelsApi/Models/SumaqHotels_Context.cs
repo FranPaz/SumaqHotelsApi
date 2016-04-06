@@ -38,10 +38,10 @@ namespace SumaqHotelsApi.Models
         public System.Data.Entity.DbSet<SumaqHotelsApi.Models.ImagenHotel> ImagenesHotel { get; set; }
         public System.Data.Entity.DbSet<SumaqHotelsApi.Models.TipoImagen> TiposImagenes { get; set; }
         public System.Data.Entity.DbSet<SumaqHotelsApi.Models.ImagenTipoHabitacion> ImagenesTipoHabitacion { get; set; }
-
+        public System.Data.Entity.DbSet<SumaqHotelsApi.Models.Pasajero> Pasajeroes { get; set; }
         
         #endregion
-        public System.Data.Entity.DbSet<SumaqHotelsApi.Models.Pasajero> Pasajeroes { get; set; }
+        
 
         public static SumaqHotels_Context Create() {
             return new SumaqHotels_Context();

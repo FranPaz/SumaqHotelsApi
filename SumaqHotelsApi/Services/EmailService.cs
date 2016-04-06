@@ -28,14 +28,10 @@ namespace SumaqHotelsApi.Services
             myMessage.Text = message.Body;
             myMessage.Html = message.Body;
 
-            // Create network credentials to access your SendGrid account
-            var username = "";
-            var pswd = "";
+            // Create network credentials to access your SendGrid account            
 
-            var credentials = new NetworkCredential(username, pswd);
-            
-            //var credentials = new NetworkCredential(ConfigurationManager.AppSettings["emailService:Account"],
-            //                                        ConfigurationManager.AppSettings["emailService:Password"]);
+            var credentials = new NetworkCredential(ConfigurationManager.AppSettings["emailService:Account"],
+                                                    ConfigurationManager.AppSettings["emailService:Password"]);
 
             // Create a Web transport for sending email.
             var transportWeb = new Web(credentials);

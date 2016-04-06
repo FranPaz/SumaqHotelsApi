@@ -8,6 +8,7 @@ using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using SumaqHotelsApi.Infrastructure;
 using SumaqHotelsApi.Models;
+using System.Configuration;
 
 namespace SumaqHotelsApi.Controllers
 {
@@ -126,7 +127,7 @@ namespace SumaqHotelsApi.Controllers
                 IHttpActionResult response;
                 //we want a 303 with the ability to set location
                 HttpResponseMessage responseMsg = new HttpResponseMessage(HttpStatusCode.RedirectMethod);
-                responseMsg.Headers.Location = new Uri("http://sumaqhotels.azurewebsites.net/#/seguridad/confirm");
+                responseMsg.Headers.Location = new Uri(ConfigurationManager.AppSettings["urlWeb"]);
                 response = ResponseMessage(responseMsg);
                 return response;
             }
