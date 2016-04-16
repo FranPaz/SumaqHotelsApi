@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -126,7 +127,8 @@ namespace SumaqHotelsApi.Controllers
                 IHttpActionResult response;
                 //we want a 303 with the ability to set location
                 HttpResponseMessage responseMsg = new HttpResponseMessage(HttpStatusCode.RedirectMethod);
-                responseMsg.Headers.Location = new Uri("http://sumaqhotels.azurewebsites.net/#/seguridad/confirm");
+                //seteo la url a la que voy a redirigir y capturar en el frontend
+                responseMsg.Headers.Location = new Uri(ConfigurationManager.AppSettings["urlWeb"]); //fpaz: url del frontend que se toma desde las configuraciones en el webconfig                 
                 response = ResponseMessage(responseMsg);
                 return response;
             }
